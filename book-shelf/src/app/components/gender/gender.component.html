@@ -1,0 +1,18 @@
+
+  <section class="genders" [ngClass]="gender().id">
+    <h3 class="text">
+      {{gender().value}}
+    </h3>
+
+    @if(gender().books.length === 0) {
+    <div class="text">
+      <img src="without-books.png" alt="Sem livros neste gênero">
+      <p>Não há livros neste gênero ainda</p>
+    </div>
+  }
+  <div class="books-by-gender">
+      @for(book of gender().books; track book){
+        <app-book-card [book]="book"></app-book-card>
+      }
+  </div>
+  </section>
